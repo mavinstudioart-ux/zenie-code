@@ -1,0 +1,4 @@
+# Optional: richer multi-language repository parsing.
+# The agent automatically falls back to Python AST and regex if unavailable.
+tree-sitter>=0.22.0
+tree-sitter-language-pack>=0.6.0

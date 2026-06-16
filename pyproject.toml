@@ -1,0 +1,79 @@
+[build-system]
+requires = ["setuptools>=77.0.3", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "zenie-code"
+version = "1.1.0"
+description = "Local-first agentic coding CLI with diagnosis, model management, sandbox verification, and rollback."
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+authors = [
+  { name = "Zenie" }
+]
+keywords = [
+  "coding-agent",
+  "local-llm",
+  "cli",
+  "llama-cpp",
+  "agentic",
+  "developer-tools"
+]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Environment :: Console",
+  "Intended Audience :: Developers",
+  "Operating System :: Microsoft :: Windows",
+  "Operating System :: POSIX :: Linux",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Topic :: Software Development",
+]
+dependencies = [
+  "requests>=2.31.0"
+]
+
+[project.optional-dependencies]
+treesitter = [
+  "tree-sitter>=0.22.0",
+  "tree-sitter-language-pack>=0.6.0"
+]
+dev = [
+  "build>=1.2.2",
+  "pytest>=8.0",
+  "ruff>=0.11",
+]
+
+[project.scripts]
+zenie = "zenie_code.cli:main"
+zenie-benchmark = "zenie_code.benchmark:main"
+zenie-self-check = "zenie_code.self_check:main"
+
+[project.urls]
+Homepage = "https://github.com/mavinstudioart-ux/zenie-code"
+Repository = "https://github.com/mavinstudioart-ux/zenie-code"
+Issues = "https://github.com/mavinstudioart-ux/zenie-code/issues"
+Changelog = "https://github.com/mavinstudioart-ux/zenie-code/blob/main/CHANGELOG.md"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["zenie_code*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+exclude = [".git", ".venv", "build", "dist"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
+ignore = ["E501"]

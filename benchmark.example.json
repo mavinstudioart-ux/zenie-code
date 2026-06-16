@@ -1,0 +1,23 @@
+{
+  "tasks": [
+    {
+      "id": "diagnosis-001",
+      "mode": "diagnosis",
+      "repo": "C:\\project\\example",
+      "task": "Aplikasi tidak jalan, cari penyebabnya.",
+      "test_command": "python -m pytest tests/test_auth.py -q"
+    },
+    {
+      "id": "fix-001",
+      "mode": "patch",
+      "repo": "C:\\project\\example",
+      "task": "Fix the failing authentication timeout test with the smallest safe patch.",
+      "test_command": "python -m pytest tests/test_auth.py -q",
+      "candidate_count": 2,
+      "expected_files": [
+        "src/auth.py",
+        "tests/test_auth.py"
+      ]
+    }
+  ]
+}
